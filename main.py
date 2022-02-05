@@ -56,7 +56,12 @@ if __name__ == '__main__':
 
     # Process arguments
     args = parser.parse_args()
+
+    # Throw error if GPU is not available and CUDA was indicated by args
+    if args.device == 'cuda' and torch.cuda.is_available() is False:
+        raise Error('CUDA is not available')
     args.device = 'cuda' if (not args.no_cuda) and torch.cuda.is_available() else 'cpu'
+    
     assert args.revisit_policy_search_rate is None or 0 <= args.revisit_policy_search_rate <= 1, \
         ' Revisit policy search rate should be in [0,1]'
 

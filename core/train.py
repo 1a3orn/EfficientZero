@@ -466,7 +466,8 @@ def train(config, summary_writer, model_path=None):
 
     # training loop
     final_weights = _train(model, target_model, replay_buffer, storage, batch_storage, config, summary_writer)
-
+    
+    print(f"Have made {len(workers)} workers.")
     ray.wait(workers)
     print('Training over...')
 
