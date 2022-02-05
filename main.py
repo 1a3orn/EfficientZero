@@ -61,6 +61,7 @@ if __name__ == '__main__':
     if args.no_cuda is False and torch.cuda.is_available() is False:
         raise Error('CUDA is not available')
     args.device = 'cuda' if (not args.no_cuda) and torch.cuda.is_available() else 'cpu'
+    print(f"Device: {args.device}")
 
     assert args.revisit_policy_search_rate is None or 0 <= args.revisit_policy_search_rate <= 1, \
         ' Revisit policy search rate should be in [0,1]'
@@ -79,6 +80,7 @@ if __name__ == '__main__':
         from config.atari import game_config
     else:
         raise Exception('Invalid --case option')
+    print(f"Using environment: {args.env}")
 
     # set config as per arguments
     exp_path = game_config.set_config(args)

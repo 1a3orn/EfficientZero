@@ -181,7 +181,6 @@ class BatchWorker_CPU(object):
         # prepare the inputs of a batch
         for i in range(batch_size):
             game = game_lst[i]
-            print("Batch", i)
             game_pos = game_pos_lst[i]
 
             _actions = game.actions[game_pos:game_pos + self.config.num_unroll_steps].tolist()
