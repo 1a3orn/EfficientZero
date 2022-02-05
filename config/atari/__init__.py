@@ -10,23 +10,23 @@ from .model import EfficientZeroNet
 class AtariConfig(BaseConfig):
     def __init__(self):
         super(AtariConfig, self).__init__(
-            training_steps=100000,
+            training_steps=100000, 
             last_steps=20000,
             test_interval=10000,
-            log_interval=1000,
-            vis_interval=1000,
+            log_interval=100, #1000,
+            vis_interval=100, #1000,
             test_episodes=32,
-            checkpoint_interval=100,
+            checkpoint_interval=50, #100,
             target_model_interval=200,
-            save_ckpt_interval=10000,
+            save_ckpt_interval=1000, #10000,
             max_moves=108000,
             test_max_moves=12000,
             history_length=400,
             discount=0.997,
             dirichlet_alpha=0.3,
             value_delta_max=0.01,
-            num_simulations=50,
-            batch_size=256,
+            num_simulations=25, #50
+            batch_size=64, #256,
             td_steps=5,
             num_actors=1,
             # network initialization/ & normalization
@@ -58,10 +58,10 @@ class AtariConfig(BaseConfig):
             lstm_hidden_size=512,
             lstm_horizon_len=5,
             # siamese
-            proj_hid=1024,
-            proj_out=1024,
-            pred_hid=512,
-            pred_out=1024,)
+            proj_hid=256, #1024,
+            proj_out=256, #1024,
+            pred_hid=128, #512,
+            pred_out=256, #1024,)
         self.discount **= self.frame_skip
         self.max_moves //= self.frame_skip
         self.test_max_moves //= self.frame_skip
