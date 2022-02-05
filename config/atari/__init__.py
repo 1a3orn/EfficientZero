@@ -58,10 +58,10 @@ class AtariConfig(BaseConfig):
             lstm_hidden_size=512,
             lstm_horizon_len=5,
             # siamese
-            proj_hid=256, #1024,
-            proj_out=256, #1024,
-            pred_hid=128, #512,
-            pred_out=256) #1024,)
+            proj_hid=64, #1024,
+            proj_out=64, #1024,
+            pred_hid=32, #512,
+            pred_out=64) #1024,)
         self.discount **= self.frame_skip
         self.max_moves //= self.frame_skip
         self.test_max_moves //= self.frame_skip
