@@ -61,7 +61,7 @@ class AtariConfig(BaseConfig):
             proj_hid=256, #1024,
             proj_out=256, #1024,
             pred_hid=128, #512,
-            pred_out=256 #1024,)
+            pred_out=256) #1024,)
         self.discount **= self.frame_skip
         self.max_moves //= self.frame_skip
         self.test_max_moves //= self.frame_skip
