@@ -55,7 +55,7 @@ class AtariConfig(BaseConfig):
             policy_loss_coeff=1,
             consistency_coeff=2,
             # reward sum
-            lstm_hidden_size=512,
+            lstm_hidden_size=64, #512,
             lstm_horizon_len=5,
             # siamese
             proj_hid=64, #1024,
